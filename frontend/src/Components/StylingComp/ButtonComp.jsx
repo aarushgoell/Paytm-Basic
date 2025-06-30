@@ -10,7 +10,7 @@ export function ButtonComp({ text, Name, lastname, email, password }) {
           if (text == "Signup") {
             try {
               const resp = await axios.post(
-                "http://localhost:3000/api/v1/user/signup",
+                `${import.meta.env.VITE_BACKEND_URL}/api/v1/user/signup`,
                 {
                   username: email,
                   firstName: Name,
@@ -37,7 +37,7 @@ export function ButtonComp({ text, Name, lastname, email, password }) {
           } else if (text == "Sign In") {
             try {
               const resp = await axios.post(
-                "http://localhost:3000/api/v1/user/signin",
+                `${import.meta.env.VITE_BACKEND_URL}/api/v1/user/signin`,
                 {
                   username: email,
                   password: password,

@@ -25,12 +25,15 @@ function AllUsers({ filter }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/v1/user/bulk?filter=${filter}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/user/bulk?filter=${filter}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      )
       .then((resp) => {
         setUsers(resp.data.users);
       });
